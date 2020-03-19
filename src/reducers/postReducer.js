@@ -2,6 +2,8 @@ const postReducer = (state = [], action) => {
   switch (action.type) {
     case "ADD_POST":
       return [{ ...state, ...action.data }];
+    case "ADD_rPOST":
+      return [{ ...state, ...action.data }];
     case "DELETE_POST":
       return state.filter(post => post.id !== action.id);
     case "EDIT_POST":

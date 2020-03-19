@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { fetchPostData } from "../actions/index";
 
 class PostForm extends React.Component {
   handleSubmit = ev => {
@@ -17,6 +18,10 @@ class PostForm extends React.Component {
       type: "ADD_POST",
       data
     });
+  };
+
+  handleClick = () => {
+    this.props.dispatch(fetchPostData());
   };
 
   render() {
@@ -43,6 +48,11 @@ class PostForm extends React.Component {
           <br />
           <button>Post</button>
         </form>
+        <div className="secondaryButtonContainer">
+          <button className="randomButton" onClick={this.handleClick}>
+            Add Random Post
+          </button>
+        </div>
       </div>
     );
   }
